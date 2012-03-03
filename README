@@ -3,7 +3,8 @@ Bio::Phylo::Beagle - wrapper around the Beagle library
 This is perl wrapper code that allows one to use Bio::Phylo's data handling
 capabilities to interface with the Beagle library for likelihood calculations:
 
-http://dx.doi.org/10.1093/sysbio/syr100
+* Beagle     - http://dx.doi.org/10.1093/sysbio/syr100
+* Bio::Phylo - http://search.cpan.org/dist/Bio-Phylo
 
 It is based on the SWIG bindings that were orginally developed for python by
 members of the Beagle team:
