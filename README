@@ -4,7 +4,7 @@ This is perl wrapper code that allows one to use Bio::Phylo's data handling
 capabilities to interface with the Beagle library for likelihood calculations:
 
 * Beagle     - http://dx.doi.org/10.1093/sysbio/syr100
-* Bio::Phylo - http://search.cpan.org/dist/Bio-Phylo
+* Bio::Phylo - http://dx.doi.org/10.1186/1471-2105-12-63
 
 It is based on the SWIG bindings that were orginally developed for python by
 members of the Beagle team:
