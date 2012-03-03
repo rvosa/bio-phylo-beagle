@@ -44,7 +44,7 @@ $beagle->set_matrix($matrix);
 $beagle->set_model($model);
 
 # set category weights
-$beagle->set_category_weights( -weights => [1.0] );
+$beagle->set_category_weights( '-weights' => [1.0] );
 
 # set category rates
 $beagle->set_category_rates( 1.0 );
@@ -98,8 +98,8 @@ my $op1 = Bio::Phylo::BeagleOperation->new(
 );
 
 # insert operations in array
-$operations->set_item( -index => 0, -op => $op0 );
-$operations->set_item( -index => 1, -op => $op1 );
+$operations->set_item( '-index' => 0, '-op' => $op0 );
+$operations->set_item( '-index' => 1, '-op' => $op1 );
 
 # update partials
 $beagle->update_partials(
