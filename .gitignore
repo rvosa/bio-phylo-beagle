@@ -1,3 +1,6 @@
 beagle\.bundle
 beagle\.kpf
 beagle_wrap\.o
+Makefile
+Makefile\.old
+_Inline/
