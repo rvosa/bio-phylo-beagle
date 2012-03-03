@@ -109,7 +109,7 @@ $beagle->update_partials(
 );
 
 my $lnl = $beagle->calculate_root_log_likelihoods;
-ok( round($lnl) == -85, "-lnL: $lnl" );
+ok( round($lnl) == -85, "lnL = $lnl" );
 
 __DATA__
 >homo
