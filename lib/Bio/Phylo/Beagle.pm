@@ -12,7 +12,8 @@ use Bio::Phylo::Util::Logger;
 
 my $logger = Bio::Phylo::Util::Logger->new;
 our $BEAGLE_OP_NONE = -1;
-my ( %model, %matrix, %tree, %instance );
+
+my @fields = \( my ( %model, %matrix, %tree, %instance ) );
 
 # static
 my $create_intarray = sub {
@@ -821,6 +822,16 @@ sub calculate_root_log_likelihoods {
     );
     # 
     return beagle::doublep_value($outSumLogLikelihood);    
+}
+
+sub _cleanup {
+    my $self = shift;
+    $logger->info("cleaning up '$self'");
+    if ( defined( my $id = $self->get_id ) ) {
+        for my $field (@fields) {
+            delete $field->{$id};
+        }
+    }
 }
 
 =back
