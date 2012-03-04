@@ -30,13 +30,13 @@ my $beagle = Bio::Phylo::Beagle->new;
 # create a beagle instance
 my $instance = $beagle->create_instance(
     '-tip_count'             => $matrix->get_ntax, # tipCount
-    '-partials_buffer_count' => 2, # partialsBufferCount
-    '-compact_buffer_count'  => 3, # compactBufferCount
-    '-state_count'           => 4, # stateCount
     '-pattern_count'         => $matrix->get_nchar, # patternCount
+    '-state_count'           => $model->get_nstates, # stateCount
+    '-category_count'        => $model->get_nst, # categoryCount    
+    '-partials_buffer_count' => 2, # partialsBufferCount
+    '-compact_buffer_count'  => 3, # compactBufferCount $matrix->get_ntax?
     '-eigen_buffer_count'    => 1, # eigenBufferCount
     '-matrix_buffer_count'   => 4, # matrixBufferCount
-    '-category_count'        => 1, # categoryCount
 );
 
 # assign a character state matrix
@@ -44,12 +44,6 @@ $beagle->set_matrix($matrix);
 
 # assign a substitution model
 $beagle->set_model($model);
-
-# set category weights
-$beagle->set_category_weights( '-weights' => [1.0] );
-
-# set category rates
-$beagle->set_category_rates( 1.0 );
 
 # set eigen decomposition
 $beagle->set_eigen_decomposition(
@@ -72,9 +66,6 @@ $beagle->set_eigen_decomposition(
 
 # assign a tree object
 $beagle->set_tree($tree);
-
-# update transition matrices
-$beagle->update_transition_matrices;           
 
 # create operation array
 my $operations = Bio::Phylo::BeagleOperationArray->new(2);
