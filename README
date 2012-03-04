@@ -7,7 +7,7 @@ capabilities to interface with the Beagle library for likelihood calculations:
 * Bio::Phylo - http://dx.doi.org/10.1186/1471-2105-12-63
 
 It is based on the SWIG bindings that were orginally developed for python by
-members of the Beagle team:
+Simon Frost:
 
 http://code.google.com/p/beagle-lib/source/browse/trunk/examples/swig_python/README
 
