@@ -12,6 +12,7 @@ use Bio::Phylo::Util::Logger;
 
 my $logger = Bio::Phylo::Util::Logger->new;
 our $BEAGLE_OP_NONE = -1;
+our $VERSION = 0.01;
 
 my @fields = \( my ( %model, %matrix, %tree, %instance ) );
 
