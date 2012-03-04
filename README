@@ -15,16 +15,13 @@ I developed this on a MacBook Pro with OS X snow leopard. I used the svn
 revision 1082 of Beagle to build against. I found that I needed to update
 my SWIG to version 2.0.4, with pcre (both from source).
 
-For perl I used the one that comes with snow leopard: perl, v5.10.0 built for
-darwin-thread-multi-2level. With that perl, there is something wrong with the
-way it composes its compiler and linker flags. In theory, one should be able
-to do `perl -MExtUtils::Embed -e ccopts` to get compiler flags and
-`perl -MExtUtils::Embed -e ldopts` for linker flags but on my machine perl's
-config lists a whole bunch of architectures (-arch ppc, etc.) that I don't want
-to target. So I had to hardcode the -I and -L flags for perl, as you can see in
-build.sh
+On operating systems that support pkg-config and backticks you should be
+able to build and install using the following commands:
 
-The pkg-config flags the Beagle returns work perfectly on my machine, by the way.
+perl Makefile.PL
+make
+make test
+(sudo make install) <-- don't do this while these wrappers are experimental
 
 The unit test script t/test_simple.t does the same computation as the python
 test.py script in the Beagle-lib source tree, demonstrating most of the
