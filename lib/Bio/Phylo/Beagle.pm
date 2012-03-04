@@ -216,14 +216,19 @@ returning a unique identifier.
            -compact_buffer_count   => Number of compact state representation buffers to create (input)
            -state_count            => Number of states in the continuous-time Markov chain (input)
            -pattern_count          => Number of site patterns to be handled by the instance (input)
-           -eigen_buffer_count     => Number of rate matrix eigen-decomposition, category weight, and state frequency buffers to allocate (input)
+           -eigen_buffer_count     => Number of rate matrix eigen-decomposition, category weight, 
+                                      and state frequency buffers to allocate (input)
            -matrix_buffer_count    => Number of transition probability matrix buffers (input)
            -category_count         => Number of rate categories (input)
-           -scale_buffer_count      => Number of scale buffers to create, ignored for auto scale or always scale (input)
-           -resource_list          => List of potential resources on which this instance is allowed (input, NULL implies no restriction)
+           -scale_buffer_count     => Number of scale buffers to create, ignored for auto scale or 
+                                      always scale (input)
+           -resource_list          => List of potential resources on which this instance is allowed 
+                                      (input, NULL implies no restriction)
            -resource_count         => Length of resourceList list (input)
-           -preference_flags       => Bit-flags indicating preferred implementation characteristics, see BeagleFlags (input)
-           -requirement_flags      => Bit-flags indicating required implementation characteristics, see BeagleFlags (input)
+           -preference_flags       => Bit-flags indicating preferred implementation characteristics, 
+                                      see BeagleFlags (input)
+           -requirement_flags      => Bit-flags indicating required implementation characteristics, 
+                                      see BeagleFlags (input)
            -return_info            => Pointer to return implementation and resource details
 
 =cut
