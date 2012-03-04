@@ -311,19 +311,19 @@ sub create_table {
  Usage   : $beagle->set_pattern_weights( 1,1,1,1,1 )
  Function: Set a category weights buffer
  Returns : error code
- Args    : Array containing patternCount weights (input)
+ Args    : None, operates on $self->get_matrix
 
 =cut
 
 sub set_pattern_weights {
     $logger->info("@_");
-    my $self     = shift;
-    my $nchar    = $self->get_matrix->get_nchar;
-    my $instance = $self->get_instance;
-    my @args = scalar(@_) ? @_ : ( 1 );
+    my $self       = shift;
+    my $nchar      = $self->get_matrix->get_nchar;
+	my $characters = $self->get_matrix->get_characters;
+    
     my @wts;
-    for my $i ( 1 .. $nchar ) {
-        push @wts, $args[$i] || 1;
+    for my $i ( 0 .. $nchar - 1 ) {
+        push @wts, $characters->get_by_index($i)->get_weight;
     }
     my $patternWeights = $create_pattern_weights->(@wts);
     
@@ -337,7 +337,7 @@ sub set_pattern_weights {
     #*
     #* @return error code
     #*/
-    return beagle::beagleSetPatternWeights($instance, $patternWeights);
+    return beagle::beagleSetPatternWeights($self->get_instance, $patternWeights);
 }
 
 =item set_state_frequencies()
@@ -426,6 +426,7 @@ sub set_tree {
     my ( $self, $tree ) = @_;
     if ( looks_like_object $tree, _TREE_ ) {
         $tree{ $self->get_id } = $tree;
+		$self->update_transition_matrices;  
         return $self;
     }
 }
@@ -447,6 +448,8 @@ sub set_model {
     if ( looks_like_object $model, _MODEL_ ) {
         $model{ $self->get_id } = $model;
         $self->set_state_frequencies;
+		$self->set_category_weights( '-weights' => $model->get_catweights );
+		$self->set_category_rates( @{ $model->get_catrates } );
         return $self;
     }
 }
