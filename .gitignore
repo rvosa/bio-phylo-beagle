@@ -1,7 +1,6 @@
 blib
 Beagle\.bs
 pm_to_blib
-MANIFEST
 beagle\.bundle
 beagle\.kpf
 beagle_wrap\.o
