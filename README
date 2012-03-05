@@ -16,7 +16,19 @@ revision 1082 of Beagle to build against. I found that I needed to update
 my SWIG to version 2.0.4, with pcre (both from source).
 
 On operating systems that support pkg-config and backticks you should be
-able to build and install using the following commands:
+able to build and install this library. To ensure that everything is OK
+you should first check to see that pkg-config returns the right values.
+Try this:
+
+pkg-config --cflags hmsbeagle-1
+
+This should return something like the following (exact path may differ
+depending on your BEAGLE installation):
+
+-I/usr/local/include/libhmsbeagle-1
+
+If that is indeed the case, you should be able to build this library 
+using the following commands:
 
 perl Makefile.PL
 make
