@@ -8,4 +8,8 @@ WriteMakefile(
     'OBJECT'       => 'beagle_wrap.o',
     'INC'          => `pkg-config --cflags hmsbeagle-1`,
     'LDFROM'       => 'beagle_wrap.o ' . `pkg-config --libs hmsbeagle-1`,
+    'PREREQ_PM'    => {
+        'Bio::Phylo'  => 0,
+        'Math::Round' => 0,
+    }
 );
